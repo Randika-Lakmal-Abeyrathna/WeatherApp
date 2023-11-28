@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>Page Is loading</p>
     <Suspense>
       <AsyncCityView />
       <template #fallback>
