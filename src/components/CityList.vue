@@ -12,6 +12,8 @@ import { ref } from "vue";
 import CityCard from "./CityCard.vue";
 import { useRouter } from "vue-router";
 
+const API_KEY =import.meta.env.VITE_API_KEY;
+
 const savedCities = ref([]);
 
 const getCities = async () => {
@@ -23,7 +25,7 @@ const getCities = async () => {
 
     savedCities.value.forEach((city) => {
         requests.push(
-            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${city.coords.lat}&lon=${city.coords.lng}&appid={APIKEY}&units=imperial`)
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${city.coords.lat}&lon=${city.coords.lng}&appid=${API_KEY}&units=imperial`)
         );
     });
 
@@ -43,7 +45,7 @@ const goToCityView = (city) => {
     router.push({
         name:'cityView',
         params:{state:city.state, city:city.city},
-        query:{lat:city.coords.lat, lng:city.coords.lng},
+        query:{id:city.id,lat:city.coords.lat, lng:city.coords.lng},
     })
 }
 
