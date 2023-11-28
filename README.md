@@ -27,3 +27,11 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### API KEY Configuration for OpenWeather.
+
+Create a .env file in your project and create the following key and assign the API key
+
+```
+VITE_API_KEY={API_KEY }
+```
